@@ -25,7 +25,6 @@ def prettyPicture(clf, X_test, y_test):
     h = .01  # step size in the mesh
     xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
     Z = clf.predict(np.c_[xx.ravel(), yy.ravel()])
-    print clf.score(X_test,y_test)
     # Put the result into a color plot
     Z = Z.reshape(xx.shape)
     plt.xlim(xx.min(), xx.max())
