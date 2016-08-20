@@ -38,10 +38,12 @@ clf = clf.fit(features_train, labels_train)# gets the classifier that is fitted 
 '''
 different ways to print the accuracy of the GNB classifier
 '''
-print clf.score(features_test,labels_test) # find the prediction score for the test data
+#print clf.score(features_test,labels_test) # find the prediction score for the test data
+#print features_test
 pred = clf.predict(features_test)
+print clf.predict_proba(features_test)
 from sklearn.metrics import accuracy_score
-print accuracy_score(labels_test, pred)
+#print accuracy_score(labels_test, pred)
 
 
 
