@@ -12,7 +12,6 @@ __author__ = 'rbaral'
 
 import sys, os
 from time import time
-#sys.path.append("C:\\Users\\rbaral\\Documents\\GitHub\\Udacity_MachineLearning\\edu\\fiu\\ml\\tools\\")
 sys.path.append("../../tools/")
 print os.getcwd()
 from email_preprocess import preprocess
