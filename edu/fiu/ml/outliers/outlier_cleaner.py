@@ -33,7 +33,7 @@ def outlierCleaner(predictions, ages, net_worths):
     errorArr = errorArr.flatten()
     ages = ages.flatten()
     net_worths = net_worths.flatten()
-    print len(ages), len(net_worths), len(errorArr)
+    #print len(ages), len(net_worths), len(errorArr)
     cleaned_data = []
     cleaned_data.append(tuple(ages))
     cleaned_data.append(tuple(net_worths))

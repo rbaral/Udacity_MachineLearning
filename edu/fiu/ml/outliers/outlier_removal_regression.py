@@ -29,9 +29,9 @@ from sklearn.linear_model import LinearRegression
 reg = LinearRegression()
 reg.fit(ages_train, net_worths_train)
 #get the slope
-print "old slope is:",reg.coef_
+#print "old slope is:",reg.coef_
 #score for the test data
-print "old score is:",reg.score(ages_test, net_worths_test)
+#print "old score is:",reg.score(ages_test, net_worths_test)
 
 try:
     plt.plot(ages, reg.predict(ages), color="blue")
@@ -66,8 +66,8 @@ if len(cleaned_data) > 0:
         reg.fit(ages, net_worths)
         plt.plot(ages, reg.predict(ages), color="blue")
         #find the new slope
-        print "new slope is:",reg.coef_
-        print "new score is:",reg.score(ages_test, net_worths_test)
+        #print "new slope is:",reg.coef_
+        #print "new score is:",reg.score(ages_test, net_worths_test)
     except NameError:
         print "you don't seem to have regression imported/created,"
         print "   or else your regression object isn't named reg"
