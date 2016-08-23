@@ -1,0 +1,14 @@
+Which of the following algorithms is affected by feature scaling?
+
+1)Decision Tree
+They aren't going to give the diagonal lines. They give series of vertical and horizontal lines which wont be effected by the scales.
+
+2)SVM with RBF kernel
+In SVM, the distance calculation (distance between the points and the hyperplane) tradeoffs between one dimension to the other, i.e. if we scale
+one dimension twice as the other, it counts twice as much.
+
+3) Linear Regression
+Each feature has a co-efficient and that co-efficient and feature go together. what's going with feature a wont affect the coefficient of feature b. So the scaling doesn't affect at all.
+
+4)K-Means clustering
+The distance of a point from the cluster centre tradeoffs between one dimension to the other. Similar effect to the SVM will be observed.
