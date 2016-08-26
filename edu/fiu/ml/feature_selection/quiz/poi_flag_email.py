@@ -1,6 +1,5 @@
 #!/usr/bin/python
 __author__ = 'rbaral'
-
 ###
 ### in poiFlagEmail() below, write code that returns a boolean
 ### indicating if a given email is from a POI
@@ -30,6 +29,7 @@ def getToFromStrings(f):
 ### POI flag an email
 
 def poiFlagEmail(f):
+    #print "poiFlagEmail started"
     """ given an email file f,
         return a trio of booleans for whether that email is
         to, from, or cc'ing a poi """
@@ -42,7 +42,7 @@ def poiFlagEmail(f):
     to_poi = False
     from_poi = False
     cc_poi   = False
-
+    #print "to_emails:",to_emails
     ### to_poi and cc_poi are related functions, which flag whether
     ### the email under inspection is addressed to a POI, or if a POI is in cc
     ### you don't have to change this code at all
@@ -68,10 +68,20 @@ def poiFlagEmail(f):
     ### set from_poi to True if #####
     ### the email is from a POI #####
     #################################
-
-
-
-
-
+    #create the numpy array of the poi_emails_list
+    import numpy as np
+    poi_email_arr = np.array(poi_email_list)
+    #check if from_email is in poi_emails_list
+    from_poi = True in np.in1d(poi_email_arr, np.array(from_emails))
+    #check if to_email is in poi_emails_list
+    to_poi = True in np.in1d(poi_email_arr, np.array(to_emails))
+    #check if cc_email is in poi_emails_list
+    cc_poi = True in np.in1d(poi_email_arr, np.array(cc_emails))
+    #NOTE: if the in command gives error then check if cc_emails is none before doing it because some emails dont have ccs
+    print "poi_emails_arr:", poi_email_arr
+    print "from_emails:",from_emails
+    print "to_emails:",to_emails
+    print "cc_emails:",cc_emails
+    print from_poi,to_poi,cc_poi
     #################################
     return to_poi, from_poi, cc_poi

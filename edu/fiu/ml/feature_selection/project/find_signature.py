@@ -8,12 +8,10 @@ numpy.random.seed(42)
 ### The words (features) and authors (labels), already largely processed.
 ### These files should have been created from the previous (Lesson 10)
 ### mini-project.
-words_file = "../text_learning/your_word_data.pkl" 
-authors_file = "../text_learning/your_email_authors.pkl"
+words_file = "../../text_learning/project/your_word_data.pkl"
+authors_file = "../../text_learning/project/your_email_authors.pkl"
 word_data = pickle.load( open(words_file, "r"))
 authors = pickle.load( open(authors_file, "r") )
-
-
 
 ### test_size is the percentage of events assigned to the test set (the
 ### remainder go into training)
@@ -28,7 +26,7 @@ vectorizer = TfidfVectorizer(sublinear_tf=True, max_df=0.5,
 features_train = vectorizer.fit_transform(features_train)
 features_test  = vectorizer.transform(features_test).toarray()
 
-
+print "original features_train size:",len(features_train.toarray())
 ### a classic way to overfit is to use a small number
 ### of data points and a large number of features;
 ### train on only 150 events to put ourselves in this regime
@@ -38,6 +36,23 @@ labels_train   = labels_train[:150]
 
 
 ### your code goes here
+from sklearn import tree
+clf = tree.DecisionTreeClassifier(min_samples_split=2)
+clf = clf.fit(features_train, labels_train)
+#find the size of training data
+print "training points:",len(features_train)
+# find the accuracy
+from sklearn.metrics import accuracy_score
+pred = clf.predict(features_test)
+print "prediction score:",accuracy_score(labels_test, pred)
+#print "feature importances:",len(clf.feature_importances_)
+#as suggested, iterate through the list of feature_importance and keep track if its above a threshold (0.2)
+for index,item in enumerate(clf.feature_importances_):
+    if float(item)>0.2:
+        print "importance number %d and value %f word %s "%(index,item,vectorizer.get_feature_names()[index])
+
+
+
 
 
 
