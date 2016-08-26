@@ -58,6 +58,9 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
             ### use str.replace() to remove any instances of the words
             ### ["sara", "shackleton", "chris", "germani"]
             avoidWordsList = ["sara", "shackleton", "chris", "germani"]
+            # the longer list is used for the mini project on feature selection
+            avoidWordsList = ["sara", "shackleton", "chris", "germani", "sshacklensf", "cgermannsf"]
+
             for w in avoidWordsList:
                 emailText = emailText.replace(w, "")
 
